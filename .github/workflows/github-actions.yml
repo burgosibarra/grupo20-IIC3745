@@ -31,6 +31,7 @@ jobs:
         image: postgres:12
         env:
           POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: proyecto-Testing_test
         options: >-
           --health-cmd pg_isready
           --health-interval 10s
