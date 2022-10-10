@@ -79,5 +79,3 @@ group :test do
   gem 'simplecov'
   gem 'webdrivers'
 end
-
-gem 'dotenv-rails', '~> 2.8'
