@@ -49,7 +49,7 @@ jobs:
           RAILS_ENV: "test"
           DB_USER: postgres
           DB_PASSWORD: postgres
-          DATABASE_URL: "postgres://{DB_USER}@localhost:5432/{POSTGRES_DB}"
+          DATABASE_URL: "postgres://postgres@localhost:5432/{POSTGRES_DB}"
         run: |
           bundle exec rails db:create
           bundle exec rails db:schema:load
