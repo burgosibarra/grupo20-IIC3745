@@ -21,17 +21,12 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
-    env:
-      RAILS_ENV: "test"
-
     services:
       postgres:
         image: postgres:12
         env:
-          DB_USER: postgres
-          DB_PASSWORD: postgres
+          POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
-          DATABASE_URL: "postgres://{DB_USER}@localhost:5432/{POSTGRES_DB}"
         options: >-
           --health-cmd pg_isready
           --health-interval 10s
@@ -50,6 +45,11 @@ jobs:
           bundler-cache: true
   
       - name: Create database
+        env:
+          RAILS_ENV: "test"
+          DB_USER: postgres
+          DB_PASSWORD: postgres
+          DATABASE_URL: "postgres://{DB_USER}@localhost:5432/{POSTGRES_DB}"
         run: |
           bundle exec rails db:create
           bundle exec rails db:schema:load
