@@ -5,6 +5,7 @@ require_relative '../config/environment'
 require 'rails/test_help'
 require 'capybara/rails'
 require 'simplecov'
+require 'minitest/rails/capybara'
 SimpleCov.start
 
 module ActiveSupport
