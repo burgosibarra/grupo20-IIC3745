@@ -218,6 +218,84 @@
           null
         ]
       },
+      "/home/ubuntuuser/IIC3745/grupo20-IIC3745/app/controllers/movie_controller.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          null,
+          null,
+          1,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          null,
+          null,
+          1,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/home/ubuntuuser/IIC3745/grupo20-IIC3745/app/controllers/application_controller.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          null
+        ]
+      },
+      "/home/ubuntuuser/IIC3745/grupo20-IIC3745/app/helpers/application_helper.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          1,
+          null
+        ]
+      },
+      "/home/ubuntuuser/IIC3745/grupo20-IIC3745/app/helpers/movie_helper.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          1,
+          null
+        ]
+      },
+      "/home/ubuntuuser/IIC3745/grupo20-IIC3745/app/helpers/reservas_helper.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          1,
+          null
+        ]
+      },
       "/home/ubuntuuser/IIC3745/grupo20-IIC3745/app/controllers/reservas_controller.rb": {
         "lines": [
           null,
@@ -276,86 +354,8 @@
           null,
           null
         ]
-      },
-      "/home/ubuntuuser/IIC3745/grupo20-IIC3745/app/controllers/application_controller.rb": {
-        "lines": [
-          null,
-          null,
-          1,
-          null
-        ]
-      },
-      "/home/ubuntuuser/IIC3745/grupo20-IIC3745/app/helpers/application_helper.rb": {
-        "lines": [
-          null,
-          null,
-          null,
-          1,
-          null
-        ]
-      },
-      "/home/ubuntuuser/IIC3745/grupo20-IIC3745/app/helpers/movie_helper.rb": {
-        "lines": [
-          null,
-          null,
-          null,
-          1,
-          null
-        ]
-      },
-      "/home/ubuntuuser/IIC3745/grupo20-IIC3745/app/helpers/reservas_helper.rb": {
-        "lines": [
-          null,
-          null,
-          null,
-          1,
-          null
-        ]
-      },
-      "/home/ubuntuuser/IIC3745/grupo20-IIC3745/app/controllers/movie_controller.rb": {
-        "lines": [
-          null,
-          null,
-          null,
-          1,
-          1,
-          null,
-          1,
-          1,
-          null,
-          null,
-          1,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          null,
-          null,
-          null,
-          1,
-          0,
-          null,
-          0,
-          0,
-          0,
-          null,
-          0,
-          null,
-          null,
-          null,
-          1,
-          0,
-          0,
-          null,
-          null,
-          null,
-          null
-        ]
       }
     },
-    "timestamp": 1665372307
+    "timestamp": 1665374266
   }
 }
