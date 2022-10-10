@@ -75,7 +75,6 @@ end
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem 'capybara'
-  gem 'minitest-rails-capybara', '~> 0.0.2'
   gem 'selenium-webdriver'
   gem 'simplecov'
   gem 'webdrivers'
