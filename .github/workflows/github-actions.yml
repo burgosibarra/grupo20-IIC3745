@@ -23,13 +23,14 @@ jobs:
 
     env:
       RAILS_ENV: "test"
-      DB_USER: postgres
-      DB_PASSWORD: postgres
-      DATABASE_URL: "postgres://{DB_USER}@localhost:5432/{POSTGRES_DB}"
 
     services:
       postgres:
         image: postgres:12
+        env:
+          DB_USER: postgres
+          DB_PASSWORD: postgres
+          DATABASE_URL: "postgres://{DB_USER}@localhost:5432/{POSTGRES_DB}"
         options: >-
           --health-cmd pg_isready
           --health-interval 10s
