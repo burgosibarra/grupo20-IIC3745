@@ -23,7 +23,8 @@ jobs:
 
     env:
       RAILS_ENV: test
-      DB_USER: postgres://postgres:postgres@localhost:5432
+      DB_USER: postgres
+      DB_PASSWORD: postgres
 
     services:
       postgres:
