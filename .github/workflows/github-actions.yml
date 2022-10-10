@@ -30,6 +30,7 @@ jobs:
         env:
           DB_USER: postgres
           DB_PASSWORD: postgres
+          POSTGRES_PASSWORD: postgres
           DATABASE_URL: "postgres://{DB_USER}@localhost:5432/{POSTGRES_DB}"
         options: >-
           --health-cmd pg_isready
