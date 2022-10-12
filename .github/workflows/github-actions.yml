@@ -62,13 +62,19 @@ jobs:
         run: bundle exec rails test
 
   cypress:
+    runs-on: ubuntu-latest
+    container: cypress/browsers:node12.18.3-chrome87-ff82
     steps:
-      uses: cypress-io/github-action@v4.2.0
+      - name: Checkout
+        uses: actions/checkout@v2
       
-      # https://medium.com/@_ClementF/rails-cypress-running-on-github-actions-d73ead9335cd
-      start: bundle exec rails server -e test -p 5002
-      # quote the url to be safe against YML parsing surprises
-      wait-on: 'http://localhost:5002'
-      browser: chrome
-      headless: trued
-          start: npm start
+      - name: Cypress run
+        uses: cypress-io/github-action@v4.2.0
+
+        # https://medium.com/@_ClementF/rails-cypress-running-on-github-actions-d73ead9335cd
+        start: bundle exec rails server -e test -p 5002
+        # quote the url to be safe against YML parsing surprises
+        wait-on: 'http://localhost:5002'
+        browser: chrome
+        headless: trued
+            start: npm start
