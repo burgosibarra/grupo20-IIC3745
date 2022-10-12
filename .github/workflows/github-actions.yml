@@ -61,13 +61,6 @@ jobs:
           DATABASE_URL: "postgres://postgres@localhost:5432/proyecto-Testing_test"
         run: bundle exec rails test
 
-  cypress:
-    runs-on: ubuntu-latest
-    container: cypress/browsers:node12.18.3-chrome87-ff82
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      
       - name: Cypress run
         uses: cypress-io/github-action@v4.2.0
 
@@ -78,3 +71,6 @@ jobs:
         browser: chrome
         headless: trued
             start: npm start
+
+ 
+      
