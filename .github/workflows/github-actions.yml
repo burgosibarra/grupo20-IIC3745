@@ -62,6 +62,11 @@ jobs:
 
       - name: Cypress run
         uses: cypress-io/github-action@v4.2.0
+        env:
+          RAILS_ENV: "test"
+          DB_USER: postgres
+          DB_PASSWORD: postgres
+          DATABASE_URL: "postgres://postgres@localhost:5432/proyecto-Testing_test"
         with:
           # https://medium.com/@_ClementF/rails-cypress-running-on-github-actions-d73ead9335cd
           start: bundle exec rails server -e test -p 5002
