@@ -75,6 +75,8 @@ end
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem 'capybara'
+  gem 'cypress-on-rails', '~> 1.0'
+  gem 'database_cleaner'
   gem 'selenium-webdriver'
   gem 'simplecov'
   gem 'webdrivers'
