@@ -78,6 +78,8 @@ group :test do
   gem 'selenium-webdriver'
   gem 'simplecov'
   gem 'webdrivers'
+  gem 'cypress-on-rails', '~> 1.0'
+  gem 'database_cleaner'
 end
 
 gem 'dotenv-rails', '~> 2.8'
