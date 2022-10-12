@@ -60,3 +60,15 @@ jobs:
           DB_PASSWORD: postgres
           DATABASE_URL: "postgres://postgres@localhost:5432/proyecto-Testing_test"
         run: bundle exec rails test
+
+  cypress:
+    steps:
+      uses: cypress-io/github-action@v4.2.0
+      
+      # https://medium.com/@_ClementF/rails-cypress-running-on-github-actions-d73ead9335cd
+      start: bundle exec rails server -e test -p 5002
+      # quote the url to be safe against YML parsing surprises
+      wait-on: 'http://localhost:5002'
+      browser: chrome
+      headless: trued
+          start: npm start
