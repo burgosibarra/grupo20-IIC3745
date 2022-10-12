@@ -2,17 +2,18 @@
 
 #### Entrega: 1
 
-#### Url Heroku:
+#### Url Heroku: [dccinema-grupo-20.herokuapp.com](https://dccinema-grupo-20.herokuapp.com/)
 
 ### Logros
 
-- [ ] Setup proyecto y código base
-- [ ] Configuración ambiende de desarrollo
-- [ ] Automatizar
-  - [ ] Rubocop
-  - [ ] SimpleCov
-  - [ ] Tests
-- [ ] Deploy heroku
+- Setup proyecto
+- Configuración ambiende de desarrollo
+- Rubocop
+- SimpleCov
+- Tests
+- Cypress
+- Automatización
+- Deploy heroku
 
 ### Consideraciones generales para la correcion
 
