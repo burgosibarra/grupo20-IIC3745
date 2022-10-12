@@ -60,7 +60,7 @@ describe("Asignar película", () => {
     cy.get("#title").type("Mi Vecino Totoro (1988)");
     cy.get("#image").selectFile("public/movies/mi_vecino_totoro.jpg");
     cy.get("input.button").contains("Crear").click();
-    cy.get("#movie_time_movie_id").select("1");
+    cy.get("#movie_time_movie_id").select("2");
     cy.get("#movie_time_time").select("TANDA");
     cy.get("#movie_time_date_start").type(start_date);
     cy.get("#movie_time_date_end").type(end_date);
@@ -94,7 +94,7 @@ describe("Asignar película", () => {
     cy.get("#title").type("Mi Vecino Totoro (1988)");
     cy.get("#image").selectFile("public/movies/mi_vecino_totoro.jpg");
     cy.get("input.button").contains("Crear").click();
-    cy.get("#movie_time_movie_id").select("1");
+    cy.get("#movie_time_movie_id").select("2");
     cy.get("#movie_time_time").select("MATINÉ");
     cy.get("#movie_time_date_start").type(start_date);
     cy.get("#movie_time_date_end").type(end_date);
