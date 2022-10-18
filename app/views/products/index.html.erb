@@ -1,0 +1,42 @@
+<p class="title is-3 has-text-centered">Productos</p>
+
+<div class="columns is-centered">
+    <div class="column"></div>
+        <div class="column has-text-centered">
+            <%= link_to "Crear", products_new_path, class: "button is-rounded is-link home_button" %>
+        </div>
+    <div class="column"></div>
+</div>
+<div class="main_movie_times_container">
+    <% @filter.each do |product|%>
+          <div class="movie_time_container">
+              <div class="movie_title" >
+                  <p class="title is-5 has-text-white"><%= product.name %></p>
+              </div>
+              <div class="movie_title" >
+                  <p class="title is-5 has-text-white"><%= product.price %></p>
+              </div>
+              <div class="movie_title" >
+                  <p class="title is-5 has-text-white"><%= product.category %></p>
+              </div>
+              <%if product.size.present? %>
+                <div class="movie_title" >
+                    <p class="title is-5 has-text-white"><%= product.size %></p>
+                </div>
+              <%end%>
+              <div class="times_container">
+                <%= link_to "Actualizar", products_edit_path(product.id), class: 'sala_button button is-light is-outlined is-small button is-rounded'%>
+              </div>
+              <div class="times_container">
+                <%= button_to "Eliminar", products_destroy_path(product.id), :method => "delete", class: 'sala_button button is-light is-outlined is-small button is-rounded'  %>
+              </div>
+          </div>
+    <% end %>
+</div>
+<div class="columns is-centered">
+    <div class="column"></div>
+    <div class="column has-text-centered">
+        <%=link_to "Volver", home_path, class: "button is-rounded is-link home_button" %>
+    </div>
+    <div class="column"></div>
+</div>
