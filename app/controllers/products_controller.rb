@@ -38,10 +38,10 @@ class ProductsController < ApplicationController
 
   def edit
     @current = Product.find(params[:id])
-    if @current.nil?
-      redirect_to '/products/index',
-                  notice: 'Un error inesperado ocurrió, el id no existe'
-    end
+    return unless @current.nil?
+
+    redirect_to '/products/index',
+                notice: 'Un error inesperado ocurrió, el id no existe'
   end
 
   def destroy

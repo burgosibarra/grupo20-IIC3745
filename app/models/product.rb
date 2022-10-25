@@ -17,9 +17,8 @@ class Product < ApplicationRecord
   validates :size, numericality: { greater_than_or_equal_to: 0 }, allow_blank: true
 
   def size_presence
-    if size.blank? && (category != 'souvenir')
-      errors.add(:size,
-                 'Error en el tamaño del producto')
-    end
+    return unless size.blank? && (category != 'souvenir')
+
+    errors.add(:size, 'Error en el tamaño del producto')
   end
 end
