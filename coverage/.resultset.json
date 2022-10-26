@@ -368,24 +368,12 @@
           null,
           1,
           1,
-          4,
+          5,
           null,
           null,
           1,
-          4,
-          4,
-          null,
-          null,
-          1,
-          1,
-          null,
-          null,
-          1,
-          null,
-          null,
-          1,
-          1,
-          1,
+          5,
+          5,
           null,
           null,
           1,
@@ -396,6 +384,29 @@
           null,
           null,
           1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
           1,
           null,
           null,
@@ -446,19 +457,29 @@
           1,
           1,
           1,
-          3,
-          3,
+          4,
+          4,
           null,
           null,
           null,
           null,
           1,
-          3,
-          3,
-          3,
+          4,
+          4,
+          4,
           null,
           null,
           1,
+          1,
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
           1,
           null,
           null,
@@ -521,19 +542,19 @@
           1,
           null,
           1,
-          26,
+          25,
           null,
           24,
-          0,
+          1,
           null,
           null,
-          null,
-          24,
           null,
           24,
           null,
           24,
-          2,
+          null,
+          24,
+          1,
           null,
           null,
           null,
@@ -587,9 +608,9 @@
           1,
           null,
           1,
-          19,
+          15,
           null,
-          4,
+          2,
           null,
           null
         ]
@@ -612,10 +633,10 @@
           1,
           null,
           1,
-          26,
+          28,
           null,
           null,
-          26,
+          28,
           8,
           null,
           null,
@@ -626,6 +647,93 @@
       },
       "/home/ubuntuuser/IIC3745/grupo20-IIC3745/app/models/room.rb": {
         "lines": [
+          null,
+          null,
+          1,
+          null
+        ]
+      },
+      "/home/ubuntuuser/IIC3745/grupo20-IIC3745/app/controllers/movie_controller.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          4,
+          4,
+          4,
+          4,
+          2,
+          null,
+          2,
+          null,
+          null,
+          null,
+          1,
+          4,
+          null,
+          4,
+          4,
+          2,
+          null,
+          2,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/home/ubuntuuser/IIC3745/grupo20-IIC3745/app/controllers/application_controller.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          null
+        ]
+      },
+      "/home/ubuntuuser/IIC3745/grupo20-IIC3745/app/helpers/application_helper.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          1,
+          null
+        ]
+      },
+      "/home/ubuntuuser/IIC3745/grupo20-IIC3745/app/helpers/movie_helper.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          1,
+          null
+        ]
+      },
+      "/home/ubuntuuser/IIC3745/grupo20-IIC3745/app/helpers/products_helper.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          1,
+          null
+        ]
+      },
+      "/home/ubuntuuser/IIC3745/grupo20-IIC3745/app/helpers/reservas_helper.rb": {
+        "lines": [
+          null,
           null,
           null,
           1,
@@ -714,93 +822,6 @@
           null
         ]
       },
-      "/home/ubuntuuser/IIC3745/grupo20-IIC3745/app/controllers/application_controller.rb": {
-        "lines": [
-          null,
-          null,
-          1,
-          null
-        ]
-      },
-      "/home/ubuntuuser/IIC3745/grupo20-IIC3745/app/helpers/application_helper.rb": {
-        "lines": [
-          null,
-          null,
-          null,
-          1,
-          null
-        ]
-      },
-      "/home/ubuntuuser/IIC3745/grupo20-IIC3745/app/helpers/movie_helper.rb": {
-        "lines": [
-          null,
-          null,
-          null,
-          1,
-          null
-        ]
-      },
-      "/home/ubuntuuser/IIC3745/grupo20-IIC3745/app/helpers/products_helper.rb": {
-        "lines": [
-          null,
-          null,
-          null,
-          1,
-          null
-        ]
-      },
-      "/home/ubuntuuser/IIC3745/grupo20-IIC3745/app/helpers/reservas_helper.rb": {
-        "lines": [
-          null,
-          null,
-          null,
-          1,
-          null
-        ]
-      },
-      "/home/ubuntuuser/IIC3745/grupo20-IIC3745/app/controllers/movie_controller.rb": {
-        "lines": [
-          null,
-          null,
-          null,
-          1,
-          1,
-          null,
-          1,
-          1,
-          null,
-          null,
-          1,
-          4,
-          4,
-          4,
-          4,
-          2,
-          null,
-          2,
-          null,
-          null,
-          null,
-          1,
-          4,
-          null,
-          4,
-          4,
-          2,
-          null,
-          2,
-          null,
-          null,
-          null,
-          1,
-          1,
-          1,
-          null,
-          null,
-          null,
-          null
-        ]
-      },
       "/home/ubuntuuser/IIC3745/grupo20-IIC3745/app/controllers/reservas_controller.rb": {
         "lines": [
           null,
@@ -861,6 +882,6 @@
         ]
       }
     },
-    "timestamp": 1666744659
+    "timestamp": 1666793458
   }
 }

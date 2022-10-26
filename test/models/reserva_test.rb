@@ -24,6 +24,16 @@ class ReservaTest < ActiveSupport::TestCase
       assert_equal(true, reserva.valid?)
     end
 
+    test 'Reserva no creada con asiento ya reservado' do
+      Reserva.create(sala: 5, fecha: Date.new(2022, 10, 11),
+                     asiento: 10, horario: 'TANDA',
+                     name: 'Pedro')
+      reserva2 = Reserva.new(sala: 5, fecha: Date.new(2022, 10, 11),
+                             asiento: 10, horario: 'TANDA',
+                             name: 'Pedro2')
+      assert_equal(false, reserva2.valid?)
+    end
+
     test 'Reserva with invalid params' do
       reserva = Reserva.create(sala: -5, fecha: Date.new(2022, 10, 11),
                                asiento: -10, horario: 'ANY',
