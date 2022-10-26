@@ -18,10 +18,11 @@ class ProductsController < ApplicationController
   end
 
   def update
-    @product = Product.find(params[:id])
+    @product = Product.find_by(id: params[:id])
     if @product.nil?
       redirect_to '/products/index',
                   notice: 'Un error inesperado ocurrió, el id no existe'
+      return
     end
 
     @product.name = list_query_params[:name]
@@ -37,7 +38,7 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    @current = Product.find(params[:id])
+    @current = Product.find_by(id: params[:id])
     return unless @current.nil?
 
     redirect_to '/products/index',
@@ -45,10 +46,11 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-    @product = Product.find(params[:id])
+    @product = Product.find_by(id: params[:id])
     if @product.nil?
       redirect_to '/products/index',
                   notice: 'Un error inesperado ocurrió, el id no existe'
+      return
     end
 
     @product.destroy
@@ -56,14 +58,14 @@ class ProductsController < ApplicationController
   end
 
   def index
-    sorted_by = params['sorted_by']
-    if sorted_by.nil?
+    filtered_by = params['filtered_by']
+    if filtered_by.nil?
       @filter = Product.all
-    elsif sorted_by == 'drink'
+    elsif filtered_by == 'drink'
       @filter = Product.where(category: 'drink')
-    elsif sorted_by == 'food'
+    elsif filtered_by == 'food'
       @filter = Product.where(category: 'food')
-    elsif sorted_by == 'souvenir'
+    elsif filtered_by == 'souvenir'
       @filter = Product.where(category: 'souvenir')
     else
       redirect_to '/products/index', notice: 'La categoría no existe'
