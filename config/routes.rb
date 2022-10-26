@@ -1,6 +1,12 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get 'products/new'
+  post 'products/create'
+  put 'products/update/:id', to: 'products#update', as: 'products_update'
+  get 'products/edit/:id', to: 'products#edit', as: 'products_edit'
+  delete 'products/destroy/:id', to: 'products#destroy', as: 'products_destroy'
+  get 'products/index'
   get 'reservas/new/:sala/:fecha/:horario', to: 'reservas#new', as: 'new_reserva'
   post 'reservas/new/:sala/:fecha/:horario', to: 'reservas#create'
   get 'movie/new'
