@@ -1,4 +1,5 @@
 <p class="title is-3 has-text-centered">Productos</p>
+<% product_types = {"drink" => ["Bebestible", "mug-saucer"], "food" => ["Comida", "utensils"], "souvenir" => ["Souvenir", "gift"]}%>
 
 <div class="columns is-centered">
     <div class="column"></div>
@@ -18,8 +19,7 @@
                             Filtros
                         </div> 
                     </div>
-                
-                <% {"drink": ["Bebestible", "mug-saucer"], "food": ["Comida", "utensils"], "souvenir": ["Souvenir", "gift"]}.each do |type, product| %>
+                <% product_types.each do |type, product| %>
                     <div class="product-filter-button-container">
                         <input type="checkbox" class="product-filter-square" id="product-filter-<%= type %>" value="<%= type %>" > 
                         <label for="product-filter-<%= type %>">
@@ -39,26 +39,27 @@
     
 <div class="main_movie_times_container">
     <% @filter.each do |product|%>
-          <div class="movie_time_container product-<%= product.category %>">
-              <div class="movie_title" >
-                  <p class="title is-5 has-text-white"><%= product.name %></p>
+          <div class="product-container product-<%= product.category %>">
+              <div class="product-name product-filter-<%= product.category %>" >
+                    
+
+                  <div class="title is-5 has-text-white"><%= product.name %></div>
               </div>
-              <div class="movie_title" >
-                  <p class="title is-5 has-text-white"><%= product.price %></p>
-              </div>
-              <div class="movie_title" >
-                  <p class="title is-5 has-text-white"><%= product.category %></p>
-              </div>
+<div class="product-icon">
+                            <i class="fa-solid fa-<%= product_types[product.category][1] %>"></i>
+</div>
+              <div class="product-details" >
+                  <div class="has-text-white"><%= product.price_string %></div>
               <%if product.size.present? %>
-                <div class="movie_title" >
-                    <p class="title is-5 has-text-white"><%= product.size %></p>
-                </div>
+                    <p class="has-text-white"><%= product.size_string %></p>
+                
               <%end%>
-              <div class="times_container">
-                <%= link_to "Actualizar", products_edit_path(product.id), class: 'sala_button button is-light is-outlined is-small button is-rounded'%>
               </div>
-              <div class="times_container">
-                <%= button_to "Eliminar", products_destroy_path(product.id), :method => "delete", class: 'sala_button button is-light is-outlined is-small button is-rounded'  %>
+              <div class="product-options">
+                <%= link_to "", products_edit_path(product.id), class: ' product-option-icon is-light is-outlined button   fa-regular fa-pen-to-square'%>
+                <div>
+                <%= button_to "", products_destroy_path(product.id), :method => "delete", class: 'product-option-icon is-light is-outlined button  fa-regular fa-trash-can'  %>
+                </div>
               </div>
           </div>
     <% end %>

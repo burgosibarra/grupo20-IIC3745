@@ -21,4 +21,28 @@ class Product < ApplicationRecord
 
     errors.add(:size, 'Error en el tamaño del producto')
   end
+
+  def price_string
+    n = price.to_s
+    i = 1
+    string = n[-1]
+    while i < n.length
+      if i % 3 == 0
+        string = "." + string
+      end
+      string = n[-i - 1] + string
+      i += 1
+    end
+    "$" + string
+  end
+
+  def size_string
+    if category == "drink"
+      return size.to_s + " cc"
+    elsif category == "food"
+      return size.to_s + " gr"
+    else 
+      return size.to_s
+    end
+  end
 end

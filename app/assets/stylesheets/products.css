@@ -49,3 +49,61 @@
 .product-filter-square {
   display: none;
 }
+
+.product-container {
+  width: 10rem;
+  border-radius: 3%;
+  opacity: 80%;
+  color: gray;
+  background-color: white;
+  align-content: space-between;
+}
+
+.product-name {
+  font-size: 2rem;
+  padding: 0.5rem;
+  text-align: center;
+  width: 100%;
+}
+
+.product-details {
+  text-align: center;
+}
+
+.product-icon {
+  padding: 0.2rem;
+  font-size: 2rem;
+  color: white;
+  text-align: center;
+  width: 100%;
+}
+
+.product-drink {
+  background-color: red;
+}
+
+.product-food {
+  background-color: green;
+}
+
+.product-souvenir {
+  background-color: blue;
+}
+
+.product-options {
+  padding: 0.4rem;
+  padding-bottom: 0;
+  display: flex;
+  font-size: 2rem;
+  width: 100%;
+  justify-content: space-between;
+  justify-items: stretch;
+  align-content: flex-end;
+}
+
+.product-option-icon {
+  border-color: transparent;
+  background-color: transparent;
+  width: 100%;
+  margin: 0;
+}
