@@ -27,22 +27,21 @@ class Product < ApplicationRecord
     i = 1
     string = n[-1]
     while i < n.length
-      if i % 3 == 0
-        string = "." + string
-      end
-      string = n[-i - 1] + string
+      string = ".#{string}" if (i % 3).zero
+      string = "#{n[-i - 1]}#{string}"
       i += 1
     end
-    "$" + string
+    "$#{string}"
   end
 
   def size_string
-    if category == "drink"
-      return size.to_s + " cc"
-    elsif category == "food"
-      return size.to_s + " gr"
-    else 
-      return size.to_s
+    case category
+    when 'drink'
+      "#{size} cc"
+    when 'food'
+      "#{size} gr"
+    else
+      size.to_s
     end
   end
 end

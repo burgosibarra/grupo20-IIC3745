@@ -86,5 +86,4 @@ gem 'dotenv-rails', '~> 2.8'
 
 gem 'jquery-rails'
 
-
-gem "font-awesome-sass", "~> 6.2.0"
+gem 'font-awesome-sass', '~> 6.2.0'
