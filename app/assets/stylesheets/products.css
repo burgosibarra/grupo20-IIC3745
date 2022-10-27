@@ -1,0 +1,51 @@
+.product-filter-drink {
+  background-color: red;
+  opacity: 80%;
+  outline-color: red;
+}
+
+.product-filter-food {
+  background-color: green;
+  opacity: 80%;
+  outline-color: green;
+}
+
+.product-filter-souvenir {
+  background-color: blue;
+  opacity: 80%;
+  outline-color: blue;
+}
+
+.product-filter-all {
+  background-color: gray;
+  opacity: 100%;
+}
+
+.product-filter-button {
+  color: white;
+  padding: 1rem;
+  width: 100%;
+  outline-offset: 0.1rem;
+  outline-width: 0.2rem;
+  outline-style: none;
+}
+
+.product-filter-button-container {
+  width: 100%;
+}
+
+.product-filter-icon {
+  font-size: 2rem;
+}
+
+#product-filter {
+  display: flex;
+  width: 36rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  gap: 0.5rem;
+}
+
+.product-filter-square {
+  display: none;
+}

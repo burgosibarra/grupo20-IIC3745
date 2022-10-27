@@ -5,11 +5,41 @@
         <div class="column has-text-centered">
             <%= link_to "Crear", products_new_path, class: "button is-rounded is-link home_button" %>
         </div>
-    <div class="column"></div>
+        <div class="column"></div>
 </div>
+        <div>
+            <div id="product-filter">
+                <div class="product-filter-button-container">
+                    <div class="product-filter-button product-filter-all">
+                        <div>
+                            <i class="product-filter-icon fa-solid fa-square-check">
+                            </i>
+                        </div>
+                            Filtros
+                        </div> 
+                    </div>
+                
+                <% {"drink": ["Bebestible", "mug-saucer"], "food": ["Comida", "utensils"], "souvenir": ["Souvenir", "gift"]}.each do |type, product| %>
+                    <div class="product-filter-button-container">
+                        <input type="checkbox" class="product-filter-square" id="product-filter-<%= type %>" value="<%= type %>" > 
+                        <label for="product-filter-<%= type %>">
+                            <div class="product-filter-button product-filter-<%= type %>">
+                                <div>
+                                    <i class="product-filter-icon fa-solid fa-<%= product[1] %>">
+                                    </i>
+                                </div>
+                                    <%= product[0] %>
+                                </div> 
+                            
+                        </label>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+    
 <div class="main_movie_times_container">
     <% @filter.each do |product|%>
-          <div class="movie_time_container">
+          <div class="movie_time_container product-<%= product.category %>">
               <div class="movie_title" >
                   <p class="title is-5 has-text-white"><%= product.name %></p>
               </div>
@@ -40,3 +70,7 @@
     </div>
     <div class="column"></div>
 </div>
+
+<% content_for :head do %>
+  <%= javascript_import_module_tag "products" %>
+<% end %>

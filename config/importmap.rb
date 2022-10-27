@@ -4,3 +4,4 @@
 
 pin 'application', preload: true
 pin 'reservas'
+pin 'products'
