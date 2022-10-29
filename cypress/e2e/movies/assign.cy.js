@@ -1,5 +1,8 @@
 const dateString = (date) => {
-  return `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
+  const two_digits = (n) => `${n <= 9 ? "0" : ""}${n}`;
+  return `${date.getFullYear()}-${two_digits(date.getMonth() + 1)}-${two_digits(
+    date.getDate()
+  )}`;
 };
 
 describe("Asignar película", () => {

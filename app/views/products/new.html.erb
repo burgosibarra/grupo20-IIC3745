@@ -1,0 +1,65 @@
+<% if notice %>
+  <div class="columns is-centered">
+    <div class="column"></div>
+    <% if notice.class == String %>
+      <div class="column">
+        <div class="notification is-success notice">
+            <p><i class='fas fa-circle'></i><%=" "+ notice%></p>
+        </div>
+      </div>
+    <%else %>
+        <div class="column">
+          <div class="notification is-danger notice">
+            <% notice.values.each{|error| %>
+              <p><i class='fas fa-circle'></i><%=" " + error[0]%></p>
+            <% }%>
+          </div>
+        </div>
+
+    <% end %>
+    <div class="column"></div>
+    </div>
+<% end %>
+<div class="columns is-centered">
+  <div class="column is-one-third has-text-centered">
+    <div class="box">
+      <p class="title is-5">Cree el producto</p>
+      <%= form_with model: @Product, url: products_create_path do |form| %>
+        <div class="field is-horizontal">
+          <div class="field-label is-medium">
+            <%= form.label :name , "Producto:", class:'label' %>
+          </div>
+            <%= form.text_field :name, class:"input"%>
+        </div>
+        <div class="field is-horizontal">
+          <div class="field-label is-medium">
+            <%= form.label :price , "Precio:", class:'label' %>
+          </div>
+            <%= form.number_field :price, class:"input"%>
+        </div>
+        <div class="field is-horizontal">
+          <div class="field-label is-medium">
+            <%= form.label :category, "Categoría:", class:'label' %>
+          </div>
+          <div class="select is-fullwidth">
+            <%= form.select :category, [['Bebestible', 'drink'], ['Comida', 'food'], ['Souvenir', 'souvenir']], class: 'select'%>
+          </div>
+        </div>
+        <div class="field is-horizontal">
+          <div class="field-label is-medium">
+            <%= form.label :size , "Tamaño (gr/cc):", class:'label' %>
+          </div>
+            <%= form.number_field :size, class:"input"%>
+        </div>
+        <%= form.submit "Crear", class: "button is-rounded is-link"%>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class="columns is-centered">
+  <div class="column"></div>
+  <div class="column has-text-centered">
+    <%=link_to "Volver", products_index_path, class: "button is-rounded is-link" %>
+  </div>
+  <div class="column"></div>
+</div>
