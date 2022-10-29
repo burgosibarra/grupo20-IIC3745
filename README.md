@@ -8,6 +8,6 @@
 
 - Crear CRUD de productos
 - Se agrega filtro de productos
-- Sin ofensas rubocop
+- Linter
 - Tests (modelos y controladores)
 - 100% coverage
