@@ -27,7 +27,7 @@ class Product < ApplicationRecord
     i = 1
     string = n[-1]
     while i < n.length
-      string = ".#{string}" if (i % 3).zero
+      string = ".#{string}" if (i % 3).zero?
       string = "#{n[-i - 1]}#{string}"
       i += 1
     end
