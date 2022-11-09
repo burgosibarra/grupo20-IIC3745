@@ -2,6 +2,11 @@
 
 # Model that represents a movie assign to a room on a specific time and date range
 class MovieTime < ApplicationRecord
+  enum branch: {
+    Santiago: 0,
+    Regional: 1
+  }
+
   belongs_to :movie
   validates :room, presence: { message: 'Falta la sala' },
                    numericality: { only_integer: true, greater_than: 0,
@@ -12,6 +17,7 @@ class MovieTime < ApplicationRecord
   validates :date_start, presence: { message: 'Falta la fecha inicial' }
   validates :date_end, presence: { message: 'Falta la fecha final' }
   validates :movie_id, presence: { message: 'Falta elegir una pelicula' }
+  validates :branch, presence: { message: 'Falta la sucursal' }
   validate :validate_date
 
   def validate_date
