@@ -37,16 +37,16 @@ class MovieController < ApplicationController
     @age = params[:age]
     @language = params[:language]
     @branch = params[:branch]
-    @filter = Movie.includes(:movie_times).where(['movie_times.date_start <= ? and
-                                                   ? <= movie_times.date_end and
-                                                   movie_times.branch = ? and
-                                                   movies.language = ? and
-                                                   movies.min_age <= ?
-                                                   ',
-                                                  @date, @date,
-                                                  MovieTime.branches[@branch],
-                                                  Movie.languages[@language],
-                                                  @age]).references(:movie_times)
-    Rails.logger.debug @filter
+    @filter = Movie.includes(:movie_times)
+    @filter.where(['movie_times.date_start <= ? and
+                    ? <= movie_times.date_end and
+                    movie_times.branch = ? and
+                    movies.min_age <= ? order by
+                    (case movies.language = ? then 1
+                    else 2 end)
+                    ',
+                   @date, @date,
+                   MovieTime.branches[@branch],
+                   @age, Movie.languages[@language]]).references(:movie_times)
   end
 end
