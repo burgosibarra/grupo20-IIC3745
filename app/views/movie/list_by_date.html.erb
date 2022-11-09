@@ -16,7 +16,7 @@
 
                 <b><%= time%>:</b>
                 <% movie_filter[time].each do |sala|%>
-                <%= link_to "Sala #{sala['room']}", new_reserva_path(sala['room'], @date, time), class: 'sala_button button is-light is-outlined is-small button is-rounded'%>
+                <%= link_to "Sala #{sala['room']}", new_reserva_path(sala['room'], @date, time, @age), class: 'sala_button button is-light is-outlined is-small button is-rounded'%>
                 <%end%>
                 </div>
               <%end%>

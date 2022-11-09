@@ -8,8 +8,23 @@ class MovieTest < ActiveSupport::TestCase
   end
 
   test 'Movie con parametros validos' do
-    movie = Movie.new(title: 'Matrix')
+    movie = Movie.new(title: 'Matrix', min_age: 0, language: 'spanish')
     assert_equal(true, movie.valid?)
+  end
+
+  test 'Movie must have title' do
+    movie = Movie.new(min_age: 0, language: 'spanish')
+    assert_equal(false, movie.valid?)
+  end
+
+  test 'Movie must have min_age' do
+    movie = Movie.new(title: 'Matrix', language: 'spanish')
+    assert_equal(false, movie.valid?)
+  end
+
+  test 'Movie must have language' do
+    movie = Movie.new(title: 'Matrix', min_age: 0)
+    assert_equal(false, movie.valid?)
   end
 
   test 'Movie con parametros invalidos' do

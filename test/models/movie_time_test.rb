@@ -4,7 +4,7 @@ require 'test_helper'
 
 class MovieTimeTest < ActiveSupport::TestCase
   def setup
-    @movie = Movie.create(title: 'Matrix')
+    @movie = Movie.create(title: 'Matrix', min_age: 0, language: 'spanish')
   end
 
   def teardown
@@ -15,7 +15,7 @@ class MovieTimeTest < ActiveSupport::TestCase
   test 'MovieTime with valid params' do
     movie_time = MovieTime.new(room: 5, date_start: Date.new(2000, 11, 10),
                                date_end: Date.new(2000, 11, 12), time: 'TANDA',
-                               movie_id: @movie.id)
+                               movie_id: @movie.id, branch: 'Santiago')
     assert_equal(true, movie_time.valid?)
   end
 
@@ -27,25 +27,25 @@ class MovieTimeTest < ActiveSupport::TestCase
   test 'MovieTime with invalid params' do
     movie_time = MovieTime.new(room: -5, date_start: Date.new(2000, 11, 10),
                                date_end: Date.new(2000, 11, 12), time: 'ANY',
-                               movie_id: SecureRandom.hex(4))
+                               movie_id: SecureRandom.hex(4), branch: 'Santiago')
     assert_equal(false, movie_time.valid?)
   end
 
   test 'MovieTime with date_end < date_start' do
     movie_time = MovieTime.new(room: 5, date_start: Date.new(2000, 11, 10),
                                date_end: Date.new(1999, 11, 12), time: 'TANDA',
-                               movie_id: @movie.id)
+                               movie_id: @movie.id, branch: 'Santiago')
     assert_equal(false, movie_time.valid?)
   end
 
   test 'MovieTime with in the same place and moment that another' do
-    movie1 = Movie.create(title: 'Matrix2')
+    movie1 = Movie.create(title: 'Matrix2', language: 'spanish', min_age: 0)
     MovieTime.create(room: 5, date_start: Date.new(2000, 11, 10),
                      date_end: Date.new(2000, 11, 12), time: 'TANDA',
-                     movie_id: movie1.id)
+                     movie_id: movie1.id, branch: 'Santiago')
     movie_time2 = MovieTime.new(room: 5, date_start: Date.new(2000, 11, 10),
                                 date_end: Date.new(2000, 11, 12), time: 'TANDA',
-                                movie_id: @movie.id)
+                                movie_id: @movie.id, branch: 'Santiago')
     assert_equal(false, movie_time2.valid?)
   end
 end

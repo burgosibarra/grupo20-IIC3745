@@ -21,20 +21,20 @@ class MovieControllerTest < ActionDispatch::IntegrationTest
     end
 
     test 'should get list by date' do
-      get "#{movies_by_date_url}?date=2000-11-10"
+      get "#{movies_by_date_url}?date=2000-11-10&age=20&branch=Santiago&language=spanish"
       assert_response :success
     end
 
     test 'should redirect when post create with valid params' do
       post create_movie_url,
-           params: { title: 'Matrix' }
+           params: { title: 'Matrix', min_age: 0, language: 'english' }
       assert_response :redirect
     end
 
     test 'should create a new Movie when valid params are given' do
       assert_difference 'Movie.count' do
         post create_movie_url,
-             params: { title: 'Matrix' }
+             params: { title: 'Matrix', min_age: 0, language: 'english' }
       end
     end
 
@@ -54,7 +54,7 @@ class MovieControllerTest < ActionDispatch::IntegrationTest
 
   class MovieControllerTestWithValidMovie < ActionDispatch::IntegrationTest
     def setup
-      @movie = Movie.create(title: 'Matrix')
+      @movie = Movie.create(title: 'Matrix', min_age: 0, language: 'english')
     end
 
     def teardown
@@ -66,7 +66,7 @@ class MovieControllerTest < ActionDispatch::IntegrationTest
       post new_movie_time_url,
            params: { movie_time: { room: 5, date_start: Date.new(2000, 11, 10),
                                    date_end: Date.new(2000, 11, 12), time: 'TANDA',
-                                   movie_id: @movie.id } }
+                                   movie_id: @movie.id, branch: 'Santiago' } }
       assert_response :redirect
     end
 
@@ -75,7 +75,7 @@ class MovieControllerTest < ActionDispatch::IntegrationTest
         post new_movie_time_url,
              params: { movie_time: { room: 5, date_start: Date.new(2000, 11, 10),
                                      date_end: Date.new(2000, 11, 12), time: 'TANDA',
-                                     movie_id: @movie.id } }
+                                     movie_id: @movie.id, branch: 'Santiago' } }
       end
     end
 
@@ -83,7 +83,7 @@ class MovieControllerTest < ActionDispatch::IntegrationTest
       post new_movie_time_url,
            params: { movie_time: { room: 5, date_start: Date.new(2000, 11, 10),
                                    date_end: Date.new(2000, 11, 12), time: 'TANDA',
-                                   movie_id: SecureRandom.hex(4) } }
+                                   movie_id: SecureRandom.hex(4), branch: 'Santiago' } }
       assert_response :redirect
     end
 
@@ -92,7 +92,7 @@ class MovieControllerTest < ActionDispatch::IntegrationTest
         post new_movie_time_url,
              params: { movie_time: { room: 5, date_start: Date.new(2000, 11, 10),
                                      date_end: Date.new(2000, 11, 12), time: 'TANDA',
-                                     movie_id: SecureRandom.hex(4) } }
+                                     movie_id: SecureRandom.hex(4), branch: 'Santiago' } }
       end
     end
   end

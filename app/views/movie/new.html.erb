@@ -37,6 +37,18 @@
           </div>
           <%= form.file_field :image , class:"input", accept: 'image/*'%>
         </div>
+        <div class="field is-horizontal">
+          <div class="field-label is-medium">
+            <%= form.label :query, "Edad: ", class: 'label' %>
+          </div>
+          <%= form.number_field :min_age, class:"input", required: 'required'%>
+        </div>
+        <div class="field is-horizontal">
+          <div class="field-label is-medium">
+            <%= form.label :query, "Idioma: ", class: 'label' %>
+          </div>
+          <%= form.select :language, [['Español', 'spanish'], ['Inglés', 'english']], class: 'select', required: 'required'%>
+        </div>
         <%= form.submit "Crear", class: "button is-rounded is-link"%>
       <% end %>
     </div>
