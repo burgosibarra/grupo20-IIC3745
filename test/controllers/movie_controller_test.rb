@@ -20,11 +20,6 @@ class MovieControllerTest < ActionDispatch::IntegrationTest
       assert_response :success
     end
 
-    test 'should get list by date' do
-      get "#{movies_by_date_url}?date=2000-11-10&age=20&branch=Santiago&language=spanish"
-      assert_response :success
-    end
-
     test 'should redirect when post create with valid params' do
       post create_movie_url,
            params: { title: 'Matrix', min_age: 0, language: 'english' }
@@ -94,6 +89,15 @@ class MovieControllerTest < ActionDispatch::IntegrationTest
                                      date_end: Date.new(2000, 11, 12), time: 'TANDA',
                                      movie_id: SecureRandom.hex(4), branch: 'Santiago' } }
       end
+    end
+
+    test 'should get list by date' do
+      get "#{movies_by_date_url}?date=2000-11-10&age=20&branch=Santiago&language=spanish"
+      assert_response :success
+    end
+
+    test 'should get the right list by date' do
+      skip("pending")
     end
   end
 end

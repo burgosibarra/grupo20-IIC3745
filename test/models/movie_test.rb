@@ -27,8 +27,17 @@ class MovieTest < ActiveSupport::TestCase
     assert_equal(false, movie.valid?)
   end
 
-  test 'Movie con parametros invalidos' do
-    movie = Movie.new
+  test 'Movie con título invalidos' do
+    movie = Movie.new(title: 10**129, min_age: 0, language: 'spanish')
     assert_equal(false, movie.valid?)
+  end
+
+  test 'Movie con min_age invalidos' do
+    movie = Movie.new(title: 'Matrix', min_age: 'hola', language: 'spanish')
+    assert_equal(false, movie.valid?)
+  end
+
+  test 'Movie con language invalidos' do
+    assert_raise(ArgumentError) { Movie.new(title: 'Matrix', min_age: 0, language: 'hola') }
   end
 end

@@ -19,15 +19,59 @@ class MovieTimeTest < ActiveSupport::TestCase
     assert_equal(true, movie_time.valid?)
   end
 
-  test 'MovieTime without params' do
-    movie_time = MovieTime.new
+  test 'MovieTime without room' do
+    movie_time = MovieTime.new(date_start: Date.new(2000, 11, 10),
+                               date_end: Date.new(2000, 11, 12), time: 'TANDA',
+                               movie_id: @movie.id, branch: 'Santiago')
     assert_equal(false, movie_time.valid?)
   end
 
-  test 'MovieTime with invalid params' do
+  test 'MovieTime with invalid room < 0' do
     movie_time = MovieTime.new(room: -5, date_start: Date.new(2000, 11, 10),
-                               date_end: Date.new(2000, 11, 12), time: 'ANY',
-                               movie_id: SecureRandom.hex(4), branch: 'Santiago')
+                               date_end: Date.new(2000, 11, 12), time: 'TANDA',
+                               movie_id: @movie.id, branch: 'Santiago')
+    assert_equal(false, movie_time.valid?)
+  end
+
+  test 'MovieTime with invalid room > 8' do
+    movie_time = MovieTime.new(room: 9, date_start: Date.new(2000, 11, 10),
+                               date_end: Date.new(2000, 11, 12), time: 'TANDA',
+                               movie_id: @movie.id, branch: 'Santiago')
+    assert_equal(false, movie_time.valid?)
+  end
+
+  test 'MovieTime with invalid room, not integer' do
+    movie_time = MovieTime.new(room: '9', date_start: Date.new(2000, 11, 10),
+                               date_end: Date.new(2000, 11, 12), time: 'TANDA',
+                               movie_id: @movie.id, branch: 'Santiago')
+    assert_equal(false, movie_time.valid?)
+  end
+
+  test 'MovieTime without time' do
+    movie_time = MovieTime.new(room: 5, date_start: Date.new(2000, 11, 10),
+                               date_end: Date.new(2000, 11, 12),
+                               movie_id: @movie.id, branch: 'Santiago')
+    assert_equal(false, movie_time.valid?)
+  end
+
+  test 'MovieTime with invalid time' do
+    movie_time = MovieTime.new(room: 5, date_start: Date.new(2000, 11, 10),
+                               date_end: Date.new(2000, 11, 12), time: 'HOLA',
+                               movie_id: @movie.id, branch: 'Santiago')
+    assert_equal(false, movie_time.valid?)
+  end
+
+  test 'MovieTime without date_start' do
+    movie_time = MovieTime.new(room: 5,
+                               date_end: Date.new(2000, 11, 12), time: 'TANDA',
+                               movie_id: @movie.id, branch: 'Santiago')
+    assert_equal(false, movie_time.valid?)
+  end
+
+  test 'MovieTime without date_end' do
+    movie_time = MovieTime.new(room: 5, date_start: Date.new(2000, 11, 10),
+                               time: 'TANDA',
+                               movie_id: @movie.id, branch: 'Santiago')
     assert_equal(false, movie_time.valid?)
   end
 
@@ -36,6 +80,28 @@ class MovieTimeTest < ActiveSupport::TestCase
                                date_end: Date.new(1999, 11, 12), time: 'TANDA',
                                movie_id: @movie.id, branch: 'Santiago')
     assert_equal(false, movie_time.valid?)
+  end
+
+  test 'MovieTime without movie id' do
+    movie_time = MovieTime.new(room: 5, date_start: Date.new(2000, 11, 10),
+                               date_end: Date.new(2000, 11, 12), time: 'TANDA',
+                               branch: 'Santiago')
+    assert_equal(false, movie_time.valid?)
+  end
+
+  test 'MovieTime without branch' do
+    movie_time = MovieTime.new(room: 5, date_start: Date.new(2000, 11, 10),
+                               date_end: Date.new(2000, 11, 12), time: 'TANDA',
+                               movie_id: @movie.id)
+    assert_equal(false, movie_time.valid?)
+  end
+
+  test 'MovieTime with invalid branch' do
+    assert_raise(ArgumentError) do
+      MovieTime.new(room: 5, date_start: Date.new(2000, 11, 10),
+                    date_end: Date.new(2000, 11, 12), time: 'TANDA',
+                    movie_id: @movie.id, branch: 'HOLA')
+    end
   end
 
   test 'MovieTime with in the same place and moment that another' do
