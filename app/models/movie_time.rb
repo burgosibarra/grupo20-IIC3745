@@ -19,19 +19,24 @@ class MovieTime < ApplicationRecord
   validates :movie_id, presence: { message: 'Falta elegir una pelicula' }
   validates :branch, presence: { message: 'Falta la sucursal' }
   validate :validate_date
+  validate :availability
 
   def validate_date
     return if date_start.nil? || date_end.nil?
 
+    # rubocop:disable Style/GuardClause
     if date_start > date_end
       errors.add(:date_start,
                  'El día de inicio tiene que ser antes o igual al día de termino')
     end
+  end
+
+  def availability
     # rubocop:disable Layout/LineLength
-    query_text = '((? <= date_end and ? >= date_start) or (? <= date_end and ? >= date_start)) and time = ? and room = ?'
+    query_text = '((? <= date_end and ? >= date_start) or (? <= date_end and ? >= date_start)) and time = ? and room = ? and branch = ?'
     # rubocop:enable Layout/LineLength
-    query = MovieTime.where([query_text, date_start, date_start, date_end, date_end, time, room])
-    # rubocop:disable Style/GuardClause
+    query = MovieTime.where([query_text, date_start, date_start, date_end, date_end, time, room,
+                             MovieTime.branches[branch]])
     if query.length.positive?
       errors.add(
         :room, "La sala esta ocupada entre #{query[0].date_start} y el #{query[0].date_end}"
