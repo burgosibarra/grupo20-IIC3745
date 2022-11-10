@@ -40,31 +40,6 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
              params: { name: 'Coca Cola Light', price: 2000, category: 'drink', size: -500 }
       end
     end
-
-    test 'should get index' do
-      get products_index_url
-      assert_response :success
-    end
-
-    test 'should get index filtered by drink' do
-      get "#{products_index_url}?filtered_by=drink"
-      assert_response :success
-    end
-
-    test 'should get index filtered by food' do
-      get "#{products_index_url}?filtered_by=food"
-      assert_response :success
-    end
-
-    test 'should get index filtered by souvenir' do
-      get "#{products_index_url}?filtered_by=souvenir"
-      assert_response :success
-    end
-
-    test 'should redirect to index when ask filter by invalid' do
-      get "#{products_index_url}?filtered_by=#{SecureRandom.hex(4)}"
-      assert_response :redirect
-    end
   end
 
   class ProductsControllerWithAProductTest < ActionDispatch::IntegrationTest
@@ -78,8 +53,18 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
 
     test 'should redirect when put valid product with valid params' do
       put products_update_url(@product.id),
-          params: { name: 'Coca Cola', price: 1750, category: 'drink', size: 500 }
+          params: { name: 'Coca Cola Light', price: 1750, category: 'drink', size: 1000 }
       assert_response :redirect
+    end
+
+    test 'should update when put valid product with valid params' do
+      put products_update_url(@product.id),
+          params: { name: 'Coca Cola Light', price: 1750, category: 'food', size: 1000 }
+      updatedproduct = Product.find(@product.id)
+      assert_equal('Coca Cola Light', updatedproduct.name)
+      assert_equal(1750, updatedproduct.price)
+      assert_equal("food", updatedproduct.category)
+      assert_equal(1000, updatedproduct.size)
     end
 
     test 'should redirect when put valid product with invalid params' do
@@ -102,6 +87,59 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
       assert_difference 'Product.count', -1 do
         delete products_destroy_url(@product.id)
       end
+    end
+  end
+
+  class ProductsControllerTestForIndex < ActionDispatch::IntegrationTest
+    def setup
+      @product1 = Product.create(name: 'Coca Cola', price: 1500, category: 'drink', size: 500)
+      @product2 = Product.create(name: 'Doritos', price: 1500, category: 'food', size: 500)
+      @product3 = Product.create(name: 'Llavero', price: 1500, category: 'souvenir')
+    end
+
+    def teardown
+      Product.destroy_all
+    end
+
+    test 'should get index' do
+      get products_index_url
+      assert_response :success
+    end
+
+    test 'should get all elements when calling index' do
+      skip("pending")
+    end
+
+    test 'should get index filtered by drink' do
+      get "#{products_index_url}?filtered_by=drink"
+      assert_response :success
+    end
+
+    test 'should get only drinks when calling index filtered by drinks' do
+      skip("pending")
+    end
+
+    test 'should get index filtered by food' do
+      get "#{products_index_url}?filtered_by=food"
+      assert_response :success
+    end
+
+    test 'should get only food when calling index filtered by food' do
+      skip("pending")
+    end
+
+    test 'should get index filtered by souvenir' do
+      get "#{products_index_url}?filtered_by=souvenir"
+      assert_response :success
+    end
+
+    test 'should get only souvenir when calling index filtered by souvenir' do
+      skip("pending")
+    end
+
+    test 'should redirect to index when ask filter by invalid' do
+      get "#{products_index_url}?filtered_by=#{SecureRandom.hex(4)}"
+      assert_response :redirect
     end
   end
 
