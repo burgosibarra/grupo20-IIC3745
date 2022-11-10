@@ -17,7 +17,8 @@ class Reserva < ApplicationRecord
                                                    message: '%<value>s no es un horario valido' }
   validates :name, presence: true
   validates :branch, presence: true
-  validates :age, numericality: { greater_than_or_equal_to: 0 }
+  validates :age, presence: true,
+                  numericality: { greater_than_or_equal_to: 0 }
   validate :validate_movie_time_exist
   validate :validate_movie_is_not_restricted
 
@@ -34,6 +35,8 @@ class Reserva < ApplicationRecord
   end
 
   def validate_movie_is_not_restricted
+    return if age.nil?
+
     query = MovieTime.where(['(? <= date_end and ? >= date_start) and
                              time = ? and room = ? and branch = ?',
                              fecha, fecha, horario, sala, Reserva.branches[branch]])
