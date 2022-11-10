@@ -38,15 +38,20 @@ class MovieController < ApplicationController
     @language = params[:language]
     @branch = params[:branch]
     @filter = Movie.includes(:movie_times)
-    @filter.where(['movie_times.date_start <= ? and
+    @filter = @filter.where(['movie_times.date_start <= ? and
                     ? <= movie_times.date_end and
                     movie_times.branch = ? and
-                    movies.min_age <= ? order by
-                    (case movies.language = ? then 1
-                    else 2 end)
+                    movies.min_age <= ?
                     ',
-                   @date, @date,
-                   MovieTime.branches[@branch],
-                   @age, Movie.languages[@language]]).references(:movie_times)
+                             @date, @date,
+                             MovieTime.branches[@branch],
+                             @age]).references(:movie_times)
+    @filter = @filter.order(
+      [Arel.sql('
+        CASE
+          WHEN movies.language = ? THEN 1
+          ELSE 2
+        END'), Movie.languages[@language]]
+    )
   end
 end
