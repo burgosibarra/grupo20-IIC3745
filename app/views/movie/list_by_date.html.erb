@@ -1,6 +1,6 @@
 <p class="title is-3 has-text-centered">Cartelera para el <%=@date%></p>
 <div class="main_movie_times_container">
-    <% @filter.each do |movie|%>
+    <% @filter.each_with_index do |movie, i|%>
           <div class="movie_time_container">
               <%if movie.image.attached?%>
                   <img class="movie_image" src="<%=Rails.env.production? ? movie.image.url : url_for(movie.image)%>"/>
@@ -10,6 +10,10 @@
               <div class="movie_title" >
                   <p class="title is-5 has-text-white"><%= movie.title %></p>
               </div>
+              <div class="movie_details" id="result_<%= i %>" >
+                <%= movie.language == "spanish" ? "[ES]" : "[EN]" %> | <%= movie.min_age < 18 ? "Para todo público" : "Restricción de edad" %>
+              </div>
+              
               <% movie_filter = movie.movie_times.group_by{ |v| v.time }%>
               <% movie_filter.keys.each do |time|%>
                 <div class="times_container" >

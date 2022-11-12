@@ -87,6 +87,12 @@
           <%= form.date_field :date_end , class: 'input', min: Date.today%>
         </div>
         <div class="field is-horizontal">
+          <div class="field-label is-fullwidth">
+            <%= form.label :query, "Sucursal: ", class: 'label' %>
+          </div>
+          <%= form.select :branch, [['Regional', 'Regional'], ['Santiago', 'Santiago']], class: 'select', required: 'required'%>
+        </div>
+        <div class="field is-horizontal">
           <div class="field-label is-medium">
             <%= form.label :room, "Sala: " , class:'label'%>
           </div>
