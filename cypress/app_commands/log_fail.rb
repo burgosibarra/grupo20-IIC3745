@@ -11,9 +11,10 @@ filename = command_options.fetch(
 system "tail -n 10000 -r log/#{
   Rails.env}.log | sed \"/APPCLEANED/ q\" | sed 'x;1!H;$!d;x' > 'log/#{
     filename}.log'"
-    
+
 # Alternative command if the above does not work
-# system "tail -n 10000 log/#{Rails.env}.log | tac | sed \"/APPCLEANED/ q\" | sed 'x;1!H;$!d;x' > 'log/#{filename}.log'"
+# system "tail -n 10000 log/#{Rails.env}.log | tac | sed
+#  \"/APPCLEANED/ q\" | sed 'x;1!H;$!d;x' > 'log/#{filename}.log'"
 
 # create a json debug file for server debugging
 json_result = {}
