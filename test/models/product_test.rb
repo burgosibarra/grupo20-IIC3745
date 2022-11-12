@@ -7,24 +7,65 @@ class ProductTest < ActiveSupport::TestCase
     Product.destroy_all
   end
 
-  test 'Product with valid params' do
+  test 'Drink Product with valid params' do
     product = Product.new(name: 'Coca Cola', price: 1500, category: 'drink', size: 500)
     assert_equal(true, product.valid?)
   end
 
-  test 'Product with invalid params' do
-    product = Product.new(name: 'Coca Cola', price: -1500, category: 'drink', size: -500)
-    assert_equal(false, product.valid?)
+  test 'Food Product with valid params' do
+    product = Product.new(name: 'SnackMix (de Todito>:c)', price: 1500, category: 'food', size: 500)
+    assert_equal(true, product.valid?)
+  end
+
+  test 'Souvenir Product with valid params' do
+    product = Product.new(name: 'Llavero', price: 1500, category: 'souvenir')
+    assert_equal(true, product.valid?)
   end
 
   test 'Drink product without size' do
-    product = Product.new(name: 'Coca Cola', price: -1500, category: 'drink')
+    product = Product.new(name: 'Coca Cola', price: 1500, category: 'drink')
+    assert_equal(false, product.valid?)
+  end
+
+  test 'Drink product with invalid size' do
+    product = Product.new(name: 'Coca Cola', price: 1500, category: 'drink', size: -500)
     assert_equal(false, product.valid?)
   end
 
   test 'Food product without size' do
-    product = Product.new(name: 'Coca Cola', price: -1500, category: 'food')
+    product = Product.new(name: 'Coca Cola', price: 1500, category: 'food')
     assert_equal(false, product.valid?)
+  end
+
+  test 'Food product with invalid size' do
+    product = Product.new(name: 'Coca Cola', price: 1500, category: 'food', size: -500)
+    assert_equal(false, product.valid?)
+  end
+
+  test 'Product without name' do
+    product = Product.new(price: 1500, category: 'drink', size: 500)
+    assert_equal(false, product.valid?)
+  end
+
+  test 'Product without price' do
+    product = Product.new(name: 'Coca Cola', category: 'drink', size: 500)
+    assert_equal(false, product.valid?)
+  end
+
+  test 'Product with invalid price' do
+    product = Product.new(name: 'Coca Cola', price: -1500, category: 'drink', size: 500)
+    assert_equal(false, product.valid?)
+  end
+
+  test 'Product without category' do
+    product = Product.new(name: 'Coca Cola', price: 1500, size: 500)
+    assert_equal(false, product.valid?)
+  end
+
+  test 'Product with invalid category' do
+    assert_raise(ArgumentError) do
+      Product.new(name: 'Coca Cola', price: 1500, category: 'hola', size: 500)
+    end
   end
 
   test 'Food product size as string' do

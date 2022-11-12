@@ -27,6 +27,24 @@
           </div>
           <%= form.date_field :date , class: 'input', required: 'required', min: Date.today%>
         </div>
+        <div class="field is-horizontal">
+          <div class="field-label is-medium">
+            <%= form.label :query, "Edad: ", class: 'label' %>
+          </div>
+          <%= form.number_field :age, class:"input", required: 'required'%>
+        </div>
+        <div class="field is-horizontal">
+          <div class="field-label is-medium">
+            <%= form.label :query, "Sucursal: ", class: 'label' %>
+          </div>
+          <%= form.select :branch, ['Santiago', 'Regional'], class: 'select', required: 'required'%>
+        </div>
+        <div class="field is-horizontal">
+          <div class="field-label is-medium">
+            <%= form.label :query, "Idioma: ", class: 'label' %>
+          </div>
+          <%= form.select :language, [['Español', 'spanish'], ['Inglés', 'english']], class: 'select', required: 'required'%>
+        </div>
         <%= form.submit "Buscar" , class: "button is-rounded is-link"%>
       <% end %>
 

@@ -21,6 +21,7 @@ describe("Mostrar cartelera", () => {
 
     cy.get("#title").type("Pride And Prejudice (2005)");
     cy.get("#image").selectFile("public/movies/pride_and_prejudice.jpg");
+    cy.get("#min_age").type("10");
     cy.get("input.button").contains("Crear").click();
     cy.get("#movie_time_movie_id").select("1");
     cy.get("#movie_time_time").select("MATINÉ");
@@ -31,6 +32,7 @@ describe("Mostrar cartelera", () => {
 
     cy.get("#title").type("Mi Vecino Totoro (1988)");
     cy.get("#image").selectFile("public/movies/mi_vecino_totoro.jpg");
+    cy.get("#min_age").type("10");
     cy.get("input.button").contains("Crear").click();
     cy.get("#movie_time_movie_id").select("2");
     cy.get("#movie_time_time").select("TANDA");
@@ -42,9 +44,16 @@ describe("Mostrar cartelera", () => {
 
     cy.visit("/");
     cy.get("#date").type(start_date);
+    cy.get(`#age`).type("16");
+    cy.get(`#branch`).select("Regional");
+    cy.get(`#language`).select("spanish");
 
     cy.get("input").contains("Buscar").click();
 
     cy.get(".movie_time_container").should("have.length", 2);
+  });
+
+  beforeEach(() => {
+    cy.app("clean");
   });
 });

@@ -14,8 +14,10 @@ class ReservasController < ApplicationController
     reservas.each do |item|
       asiento = get_asiento_value(item)
       reserva = Reserva.new
+      Rails.logger.debug params
       reserva.assign_attributes(sala: params[:sala], fecha: params[:fecha], name: params[:name],
-                                horario: params[:horario], asiento:)
+                                horario: params[:horario], asiento:,
+                                age: params[:age], branch: params[:branch])
       instancias_reservas.push(reserva)
     end
     reservas_validation(instancias_reservas)

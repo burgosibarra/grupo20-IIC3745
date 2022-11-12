@@ -19,6 +19,8 @@
         <p class="subtitle is-5 reserva_form_text">Nombre:</p>
         <%= form.text_field :name, class: 'input is-normal'%>
         <%= form.hidden_field :reservation_seats, value: ""%>
+        <%= form.hidden_field :age, value: @age%>
+        <%= form.hidden_field :branch, value: @branch%>
         <%= form.submit "Reservar Asientos" , class: 'button reservas_button'%>
       <% end %>
     </div>

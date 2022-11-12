@@ -1,13 +1,14 @@
 # Proyecto DCCinema Grupo 20
 
-#### Entrega: 2
+#### Entrega: 3
 
 #### Url Heroku: [dccinema-grupo-20.herokuapp.com](https://dccinema-grupo-20.herokuapp.com/)
 
 ### Logros
 
-- Crear CRUD de productos
-- Se agrega filtro de productos
+- Modificación base de datos
+- [Tabla de decisión](/docs/Tabla%20de%20decisión.md)
+- Test de sistema (cypress)
 - Linter
-- Tests (modelos y controladores)
+- Actualización Tests (modelos y controladores)
 - 100% coverage
