@@ -97,7 +97,7 @@ class MovieControllerTest < ActionDispatch::IntegrationTest
     end
 
     test 'should get the right list by date' do
-      skip("pending")
+      skip('pending')
     end
   end
 end
