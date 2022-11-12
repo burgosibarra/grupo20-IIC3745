@@ -115,6 +115,7 @@ describe("Tabla de decisión", () => {
     cy.get("#result_1").contains("[EN]");
 
     cy.get(".sala_button:contains(Regional)").should("have.length", 2);
+
   });
 
   it("E4: <18 / Regional / Inglés", () => {
@@ -150,6 +151,7 @@ describe("Tabla de decisión", () => {
       "have.length",
       2
     );
+
 
     cy.get("#result_0").contains("[EN]");
 
@@ -340,6 +342,7 @@ describe("Tabla de decisión", () => {
     cy.get("#result_3").contains("[ES]");
 
     cy.get(".sala_button:contains(Regional)").should("have.length", 4);
+
   });
 
   beforeEach(() => {
