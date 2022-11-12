@@ -63,7 +63,7 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
       updatedproduct = Product.find(@product.id)
       assert_equal('Coca Cola Light', updatedproduct.name)
       assert_equal(1750, updatedproduct.price)
-      assert_equal("food", updatedproduct.category)
+      assert_equal('food', updatedproduct.category)
       assert_equal(1000, updatedproduct.size)
     end
 
@@ -107,7 +107,7 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
     end
 
     test 'should get all elements when calling index' do
-      skip("pending")
+      skip('pending')
     end
 
     test 'should get index filtered by drink' do
@@ -116,7 +116,7 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
     end
 
     test 'should get only drinks when calling index filtered by drinks' do
-      skip("pending")
+      skip('pending')
     end
 
     test 'should get index filtered by food' do
@@ -125,7 +125,7 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
     end
 
     test 'should get only food when calling index filtered by food' do
-      skip("pending")
+      skip('pending')
     end
 
     test 'should get index filtered by souvenir' do
@@ -134,7 +134,7 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
     end
 
     test 'should get only souvenir when calling index filtered by souvenir' do
-      skip("pending")
+      skip('pending')
     end
 
     test 'should redirect to index when ask filter by invalid' do
