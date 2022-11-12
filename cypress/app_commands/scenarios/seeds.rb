@@ -24,3 +24,29 @@ MovieTime.create(room: 1, date_start: Date.new(2022, 12, 1),
 MovieTime.create(room: 2, date_start: Date.new(2022, 12, 1),
         date_end: Date.new(2022, 12, 31), time: 'TANDA',
         movie_id: pride_and_prejudice.id, branch: 'Santiago')
+
+MovieTime.create(room: 3, date_start: Date.new(2022, 12, 1), 
+        date_end: Date.new(2022, 12, 31), 
+        time: 'TANDA', movie_id: it.id, branch: 'Santiago')
+
+MovieTime.create(room: 4, date_start: Date.new(2022, 12, 1),
+        date_end: Date.new(2022, 12, 31), time: 'TANDA',
+        movie_id: it_chapter_two.id, branch: 'Santiago')
+
+
+
+MovieTime.create(room: 5, date_start: Date.new(2022, 12, 1), 
+        date_end: Date.new(2022, 12, 31), 
+        time: 'TANDA', movie_id: totoro.id, branch: 'Regional')
+
+MovieTime.create(room: 6, date_start: Date.new(2022, 12, 1),
+        date_end: Date.new(2022, 12, 31), time: 'TANDA',
+        movie_id: pride_and_prejudice.id, branch: 'Regional')
+
+MovieTime.create(room: 7, date_start: Date.new(2022, 12, 1), 
+        date_end: Date.new(2022, 12, 31), 
+        time: 'TANDA', movie_id: it.id, branch: 'Regional')
+
+MovieTime.create(room: 8, date_start: Date.new(2022, 12, 1),
+        date_end: Date.new(2022, 12, 31), time: 'TANDA',
+        movie_id: it_chapter_two.id, branch: 'Regional')
